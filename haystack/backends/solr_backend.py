@@ -154,7 +154,7 @@ class SolrSearchBackend(BaseSearchBackend):
                             narrow_queries=None, spelling_query=None,
                             within=None, dwithin=None, distance_point=None,
                             models=None, limit_to_registered_models=None,
-                            result_class=None, stats=None, collate=None, group_limit=None
+                            result_class=None, stats=None, collate=None, group_limit=None,
                             **extra_kwargs):
 
         index = haystack.connections[self.connection_alias].get_unified_index()
