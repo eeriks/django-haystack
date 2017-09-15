@@ -920,11 +920,6 @@ class BaseSearchQuery(object):
         """
         self.narrow_queries.add(query)
 
-    def set_group_limit(self, limit=None):
-        """Restricts the query by altering either the start, end or both offsets."""
-        if limit is not None:
-            self.group_limit = int(limit)
-
     def set_result_class(self, klass):
         """
         Sets the result class to use for results.
