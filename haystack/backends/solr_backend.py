@@ -131,7 +131,7 @@ class SolrSearchBackend(BaseSearchBackend):
                 'results': [],
                 'hits': 0,
             }
-        print('SolrSearchBackend.search()', query_string, **kwargs, sep='\n')
+        print('SolrSearchBackend.search()', query_string, kwargs, sep='\n')
         search_kwargs = self.build_search_kwargs(query_string, **kwargs)
 
         print('\n', search_kwargs)
