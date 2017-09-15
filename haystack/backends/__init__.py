@@ -441,7 +441,7 @@ class BaseSearchQuery(object):
         self.start_offset = 0
         self.end_offset = None
         self.highlight = False
-        self.group_limit = False
+        self.group_limit = None
         self.facets = {}
         self.date_facets = {}
         self.query_facets = []
@@ -821,6 +821,11 @@ class BaseSearchQuery(object):
         if high is not None:
             self.end_offset = int(high)
 
+    def set_group_limit(self, limit=None):
+        """Restricts the query by altering either the start, end or both offsets."""
+        if limit is not None:
+            self.group_limit = int(limit)
+
     def clear_limits(self):
         """Clears any existing limits."""
         self.start_offset, self.end_offset = 0, None
@@ -857,10 +862,6 @@ class BaseSearchQuery(object):
     def add_highlight(self, **kwargs):
         """Adds highlighting to the search results."""
         self.highlight = kwargs or True
-
-    def add_group_limit(self, **kwargs):
-        """Adds group limit to the search results."""
-        self.group_limit = kwargs or True
 
     def add_within(self, field, point_1, point_2):
         """Adds bounding box parameters to search query."""
