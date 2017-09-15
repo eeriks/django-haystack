@@ -131,9 +131,10 @@ class SolrSearchBackend(BaseSearchBackend):
                 'results': [],
                 'hits': 0,
             }
-
+        print(query_string)
         search_kwargs = self.build_search_kwargs(query_string, **kwargs)
 
+        print(search_kwargs)
         try:
             raw_results = self.conn.search(query_string, **search_kwargs)
         except (IOError, SolrError) as e:
@@ -802,10 +803,11 @@ class SolrSearchQuery(BaseSearchQuery):
     def run(self, spelling_query=None, **kwargs):
         """Builds and executes the query. Returns a list of search results."""
         final_query = self.build_query()
+        print(final_query)
         search_kwargs = self.build_params(spelling_query, **kwargs)
-
         if kwargs:
             search_kwargs.update(kwargs)
+        print(search_kwargs)
 
         results = self.backend.search(final_query, **search_kwargs)
 

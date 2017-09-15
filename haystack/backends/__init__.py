@@ -1041,7 +1041,6 @@ class BaseEngine(object):
         self._backend = None
 
     def get_query(self):
-        print(self.query(using=self.using))
         return self.query(using=self.using)
 
     def reset_queries(self):
