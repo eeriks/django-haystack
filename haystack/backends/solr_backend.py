@@ -196,7 +196,8 @@ class SolrSearchBackend(BaseSearchBackend):
 
         if group_limit is not None:
             kwargs['group'] = 'true'
-            # kwargs['group.field'] = 'django_ct'
+            kwargs['group.main'] = 'true'
+            kwargs['group.field'] = 'django_ct'
             kwargs['group.limit'] = group_limit
 
         if highlight:
