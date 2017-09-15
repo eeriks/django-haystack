@@ -803,6 +803,7 @@ class SolrSearchQuery(BaseSearchQuery):
         """Builds and executes the query. Returns a list of search results."""
         final_query = self.build_query()
         search_kwargs = self.build_params(spelling_query, **kwargs)
+
         if kwargs:
             search_kwargs.update(kwargs)
 
