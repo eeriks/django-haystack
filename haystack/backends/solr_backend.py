@@ -803,11 +803,10 @@ class SolrSearchQuery(BaseSearchQuery):
     def run(self, spelling_query=None, **kwargs):
         """Builds and executes the query. Returns a list of search results."""
         final_query = self.build_query()
-        print(final_query)
+        print('SolrSearchQuery.run(), kwargs=\n', **kwargs)
         search_kwargs = self.build_params(spelling_query, **kwargs)
         if kwargs:
             search_kwargs.update(kwargs)
-        print(search_kwargs)
 
         results = self.backend.search(final_query, **search_kwargs)
 
