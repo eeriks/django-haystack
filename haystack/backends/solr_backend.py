@@ -774,6 +774,9 @@ class SolrSearchQuery(BaseSearchQuery):
         if self.highlight:
             search_kwargs['highlight'] = self.highlight
 
+        if self.group_limit:
+            search_kwargs['group_limit'] = self.group_limit
+
         if self.models:
             search_kwargs['models'] = self.models
 

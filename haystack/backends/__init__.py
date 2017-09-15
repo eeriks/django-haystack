@@ -441,6 +441,7 @@ class BaseSearchQuery(object):
         self.start_offset = 0
         self.end_offset = None
         self.highlight = False
+        self.group_limit = False
         self.facets = {}
         self.date_facets = {}
         self.query_facets = []
