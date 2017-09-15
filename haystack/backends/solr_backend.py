@@ -195,7 +195,7 @@ class SolrSearchBackend(BaseSearchBackend):
             kwargs['rows'] = end_offset - start_offset
 
         if group_limit is not None:
-            kwargs['group'] = True
+            kwargs['group'] = 'true'
             kwargs['group.field'] = 'django_ct'
             kwargs['group.limit'] = group_limit
 
