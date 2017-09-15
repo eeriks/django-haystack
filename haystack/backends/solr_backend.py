@@ -154,7 +154,7 @@ class SolrSearchBackend(BaseSearchBackend):
                             narrow_queries=None, spelling_query=None,
                             within=None, dwithin=None, distance_point=None,
                             models=None, limit_to_registered_models=None,
-                            result_class=None, stats=None, collate=None,
+                            result_class=None, stats=None, collate=None, group_limit=None
                             **extra_kwargs):
 
         index = haystack.connections[self.connection_alias].get_unified_index()
@@ -193,6 +193,11 @@ class SolrSearchBackend(BaseSearchBackend):
 
         if end_offset is not None:
             kwargs['rows'] = end_offset - start_offset
+
+        if group_limit is not None:
+            kwargs['group'] = True
+            kwargs['group.field'] = 'django_ct'
+            kwargs['group.limit'] = group_limit
 
         if highlight:
             # `highlight` can either be True or a dictionary containing custom parameters
