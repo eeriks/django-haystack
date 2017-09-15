@@ -506,6 +506,9 @@ class BaseSearchQuery(object):
         if self.highlight:
             kwargs['highlight'] = self.highlight
 
+        if self.group_limit:
+            kwargs['group_limit'] = self.group_limit
+
         if self.facets:
             kwargs['facets'] = self.facets
 
@@ -992,6 +995,7 @@ class BaseSearchQuery(object):
         clone.models = self.models.copy()
         clone.boost = self.boost.copy()
         clone.highlight = self.highlight
+        clone.group_limit = self.group_limit
         clone.stats = self.stats.copy()
         clone.facets = self.facets.copy()
         clone.date_facets = self.date_facets.copy()
@@ -1037,6 +1041,7 @@ class BaseEngine(object):
         self._backend = None
 
     def get_query(self):
+        print(self.query(using=self.using))
         return self.query(using=self.using)
 
     def reset_queries(self):
