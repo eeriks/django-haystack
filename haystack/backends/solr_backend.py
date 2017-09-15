@@ -834,11 +834,6 @@ class SolrSearchQuery(BaseSearchQuery):
         self._results = results.get('results', [])
         self._hit_count = results.get('hits', 0)
 
-    def set_group_limit(self, limit=None):
-        """Restricts the query by altering either the start, end or both offsets."""
-        if limit is not None:
-            self.group_limit = int(limit)
-
 
 class SolrEngine(BaseEngine):
     backend = SolrSearchBackend

@@ -355,6 +355,12 @@ class SearchQuerySet(object):
         clone.query.add_highlight(**kwargs)
         return clone
 
+    def group_limit(self, **kwargs):
+        """Adds highlighting to the results."""
+        clone = self._clone()
+        clone.query.add_group_limit(**kwargs)
+        return clone
+
     def models(self, *models):
         """Accepts an arbitrary number of Model classes to include in the search."""
         clone = self._clone()

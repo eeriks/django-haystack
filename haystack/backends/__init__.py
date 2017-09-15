@@ -858,6 +858,10 @@ class BaseSearchQuery(object):
         """Adds highlighting to the search results."""
         self.highlight = kwargs or True
 
+    def add_group_limit(self, **kwargs):
+        """Adds group limit to the search results."""
+        self.group_limit = kwargs or True
+
     def add_within(self, field, point_1, point_2):
         """Adds bounding box parameters to search query."""
         from haystack.utils.geo import ensure_point
